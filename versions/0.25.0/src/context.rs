@@ -1004,3 +1004,43 @@ pub struct ClosePositionWithTokenExtensions<'info> {
 
     pub token_2022_program: Account<'info, AccountPlaceholder>,
 }
+
+#[derive(Accounts)]
+pub struct LockPosition<'info> {
+    #[account(mut)]
+    pub funder: Signer<'info>,
+
+    pub position_authority: Signer<'info>,
+
+    pub position: Account<'info, AccountPlaceholder>,
+
+    pub position_mint: Account<'info, AccountPlaceholder>,
+
+    #[account(mut)]
+    pub position_token_account: Account<'info, AccountPlaceholder>,
+
+    #[account(mut)]
+    pub lock_config: Account<'info, AccountPlaceholder>,
+
+    pub whirlpool: Account<'info, AccountPlaceholder>,
+
+    pub token_2022_program: Account<'info, AccountPlaceholder>,
+    pub system_program: Account<'info, AccountPlaceholder>,
+}
+
+#[derive(Accounts)]
+pub struct ResetPositionRange<'info> {
+    #[account(mut)]
+    pub funder: Signer<'info>,
+
+    pub position_authority: Signer<'info>,
+
+    pub whirlpool: Account<'info, AccountPlaceholder>,
+
+    #[account(mut)]
+    pub position: Account<'info, AccountPlaceholder>,
+
+    pub position_token_account: Account<'info, AccountPlaceholder>,
+
+    pub system_program: Account<'info, AccountPlaceholder>,
+}
