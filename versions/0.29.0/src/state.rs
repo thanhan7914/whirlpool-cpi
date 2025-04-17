@@ -123,6 +123,19 @@ impl TokenBadge {
     pub const LEN: usize = 8 + 32 + 32 + 128;
 }
 
+#[account]
+pub struct LockConfig {
+    pub position: Pubkey,
+    pub position_owner: Pubkey,
+    pub whirlpool: Pubkey,
+    pub locked_timestamp: u64,
+    pub lock_type: LockTypeLabel,
+}
+
+impl LockConfig {
+  pub const LEN: usize = 8 + 32 + 32 + 32 + 8 + 1 + 128;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // Inner Struct
 ////////////////////////////////////////////////////////////////////////////////
@@ -155,6 +168,18 @@ impl Tick {
 pub struct PositionRewardInfo {
   pub growth_inside_checkpoint: u128,
   pub amount_owed: u64,
+}
+
+#[non_exhaustive]
+#[derive(AnchorSerialize, AnchorDeserialize, Clone, Copy, Debug, PartialEq)]
+pub enum LockType {
+    Permanent,
+}
+
+#[non_exhaustive]
+#[derive(AnchorSerialize, AnchorDeserialize, Clone, Copy, Debug, PartialEq)]
+pub enum LockTypeLabel {
+    Permanent,
 }
 
 ////////////////////////////////////////////////////////////////////////////////
