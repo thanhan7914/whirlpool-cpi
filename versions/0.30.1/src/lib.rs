@@ -204,7 +204,7 @@ pub mod whirlpool {
 
     pub fn lock_position(
         ctx: Context<LockPosition>,
-        lock_type: LockType
+        lock_type: state::LockType,
     ) -> Result<()> { Ok(()) }
 
     pub fn reset_position_range(

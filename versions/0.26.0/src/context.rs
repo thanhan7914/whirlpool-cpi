@@ -1040,7 +1040,6 @@ pub struct ResetPositionRange<'info> {
     #[account(mut)]
     pub position: Account<'info, AccountPlaceholder>,
 
-    #[account(mut)]
     pub position_token_account: Account<'info, AccountPlaceholder>,
 
     pub system_program: Account<'info, AccountPlaceholder>,
