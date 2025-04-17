@@ -203,6 +203,17 @@ pub mod whirlpool {
         ctx: Context<ClosePositionWithTokenExtensions>,
     ) -> Result<()> { Ok(()) }
 
+    pub fn lock_position(
+        ctx: Context<LockPosition>,
+        lock_type: LockType
+    ) -> Result<()> { Ok(()) }
+
+    pub fn reset_position_range(
+        ctx: Context<ResetPositionRange>,
+        new_tick_lower_index: i32,
+        new_tick_upper_index: i32,
+    ) -> Result<()> { Ok(()) }
+
     ////////////////////////////////////////////////////////////////////////////////
     // V2 instructions (TokenExtensions)
     ////////////////////////////////////////////////////////////////////////////////
