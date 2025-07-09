@@ -7,8 +7,8 @@
 Cargo.toml
 ```
 [dependencies]
-anchor-lang = "=0.30.1"
-anchor-spl = "=0.30.1"
+anchor-lang = "=0.31.1"
+anchor-spl = "=0.31.1"
 whirlpool-cpi = { git = "https://github.com/thanhan7914/whirlpool-cpi", branch = "anchor/0.31.1" }
 ```
 
